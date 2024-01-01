@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { HomeProducts } from "../../data";
 
 import "./styles/Product.scss";
 import { Link } from "react-router-dom";
