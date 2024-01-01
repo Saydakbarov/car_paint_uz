@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import {
   Box,
-  Button,
   Drawer,
   IconButton,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Typography,
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { MenuData } from "../../data";
-import content from "../../localization/content";
+import content from "../localization/content";
 import LanguageComp from "./LanguageComp";
 
 import "./DrawerStyle.scss";
@@ -55,7 +52,7 @@ export default function DrawerComp({ lang, setLang }) {
             <LanguageComp lang={lang} setLang={setLang} />
           </Box>
           <List sx={{ width: "240px", p: 2 }}>
-            {content[lang]?.headerMenuData?.links?.map((page, i) => (
+            {content[lang].headerMenuData?.links?.map((page, i) => (
               <ListItemButton key={i} onClick={() => setOpenDrawer(false)}>
                 <ListItemIcon onClick={() => navigate(page.path)}>
                   <ListItemText sx={{ color: "white !important" }}>

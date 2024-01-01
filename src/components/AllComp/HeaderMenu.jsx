@@ -7,14 +7,14 @@ import {
   useTheme,
 } from "@mui/material";
 import React, { useEffect } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import DrawerComp from "../AllComp/DrawerComp";
 import { Call, Email, LocationCity } from "@mui/icons-material";
 
 import LogoWhite from "../../logoBlack.png";
 import LanguageComp from "./LanguageComp";
-import content from "../../localization/content";
+import content from "../localization/content";
 
 export default function HeaderMenu({ lang, setLang }) {
   const navigate = useNavigate();
@@ -153,7 +153,7 @@ export default function HeaderMenu({ lang, setLang }) {
                         display: { xs: "none", sm: "block" },
                       }}
                     >
-                      {content[lang]?.headerMenuData?.links?.map((item, i) => (
+                      {content[lang].headerMenuData?.links?.map((item, i) => (
                         <Button
                           key={i}
                           sx={{
