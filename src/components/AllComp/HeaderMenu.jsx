@@ -14,7 +14,7 @@ import { Call, Email, LocationCity } from "@mui/icons-material";
 
 import LogoWhite from "../../logoBlack.png";
 import LanguageComp from "./LanguageComp";
-import content from "../localization/content";
+import content from "../../localization/content";
 
 export default function HeaderMenu({ lang, setLang }) {
   const navigate = useNavigate();

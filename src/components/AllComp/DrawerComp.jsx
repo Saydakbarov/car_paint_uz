@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import content from "../localization/content";
+import content from "../../localization/content";
 import LanguageComp from "./LanguageComp";
 
 import "./DrawerStyle.scss";
