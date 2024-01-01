@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { HomeProducts } from "../../data";
 
 import "./styles/Product.scss";
+import { Link } from "react-router-dom";
 
 export default function Products({ data, lang, setLang }) {
   console.log(data);
@@ -57,32 +58,34 @@ export default function Products({ data, lang, setLang }) {
               }}
               className="productBox"
             >
-              <img
-                style={{
-                  width: "150px",
-                  position: "absolute",
-                  bottom: "0%",
-                  right: "0%",
-                }}
-                className="productImage"
-                src={v.product_image_url[0]}
-                alt=""
-              />
-              <Typography
-                sx={{
-                  color: "white",
-                  fontSize: "20px",
-                  textAlign: "center",
-                  mt: 3,
-                }}
-                className="productText"
-              >
-                {lang === "ru"
-                  ? v.product_title_ru
-                  : lang === "uz"
-                  ? v.product_title_uz
-                  : v.product_title_en}
-              </Typography>
+              <Link key={i} to={`/single/${v.product_id}`}>
+                <img
+                  style={{
+                    width: "150px",
+                    position: "absolute",
+                    bottom: "0%",
+                    right: "0%",
+                  }}
+                  className="productImage"
+                  src={v.product_image_url[0]}
+                  alt=""
+                />
+                <Typography
+                  sx={{
+                    color: "white",
+                    fontSize: "20px",
+                    textAlign: "center",
+                    mt: 3,
+                  }}
+                  className="productText"
+                >
+                  {lang === "ru"
+                    ? v.product_title_ru
+                    : lang === "uz"
+                    ? v.product_title_uz
+                    : v.product_title_en}
+                </Typography>
+              </Link>
             </Box>
           </SwiperSlide>
         ))}
