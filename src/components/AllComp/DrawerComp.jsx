@@ -22,7 +22,7 @@ export default function DrawerComp({ lang, setLang }) {
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <React.Fragment>
-      <Box sx={{ background: "black" }}>
+      <Box sx={{ background: "black !important" }}>
         <Drawer
           open={openDrawer}
           onClose={() => setOpenDrawer(false)}
