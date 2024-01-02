@@ -1,12 +1,10 @@
 import React from "react";
 import HeaderMenu from "../AllComp/HeaderMenu";
-import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 import GifHeader from "../../video/headerMain.gif";
-import VideoHeader from "../../video/videoHeader.mp4";
 
 import "./styles/HeaderMain.css";
-import { PlayArrow } from "@mui/icons-material";
 import ModalVideo from "./ModalVideo";
 
 export default function HeaderMain({ lang, setLang }) {

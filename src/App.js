@@ -8,7 +8,9 @@ import { Suspense, lazy, useState } from "react";
 import Loading from "./components/Loading/Loading";
 
 function App() {
-  const [lang, setLang] = useState(JSON.parse(window.localStorage.getItem("lang")))
+  const [lang, setLang] = useState(
+    JSON.parse(window.localStorage.getItem("lang")) || "ru"
+  );
 
   const HomePage = lazy(() => import("./pages/HomePage"));
   const AboutPage = lazy(() => import("./pages/AboutPage"));
