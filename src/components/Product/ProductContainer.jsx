@@ -4,10 +4,7 @@ import {
   Checkbox,
   FormControlLabel,
   Grid,
-  TextField,
-  ThemeProvider,
   Typography,
-  createMuiTheme,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
@@ -21,8 +18,7 @@ import {
   useSubCategories,
 } from "../../dataQuery/data.service";
 import { getProducts } from "../../dataQuery/data.fn";
-
-
+import { NavigateNext } from "@mui/icons-material";
 
 export default function ProductContainer({ lang, setLang }) {
   const { data: category } = useCategories();
@@ -43,12 +39,14 @@ export default function ProductContainer({ lang, setLang }) {
 
   const [brand, setBrand] = useState([]);
 
+  const [offset, setOffset] = useState(1);
+
   useEffect(() => {
     async function getData() {
       const query = {
         params: {
-          limit: 15,
-          page: 1,
+          limit: 6,
+          page: offset,
         },
         body: {
           brand_id: brand,
@@ -65,8 +63,9 @@ export default function ProductContainer({ lang, setLang }) {
     }
 
     getData();
-  }, [brand, currentCategory, currentSubcategory, search]);
+  }, [brand, currentCategory, currentSubcategory, search, offset]);
 
+  console.log(offset);
   return (
     <Box
       sx={{
@@ -241,30 +240,92 @@ export default function ProductContainer({ lang, setLang }) {
           </Grid>
 
           <Grid item lg={8} md={8} sm={10} xs={11}>
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value);
-              }}
-              style={{
-                width: "90%",
-                padding: "13px 20px",
-                outline: "none",
-                borderBottom: "1px solid white",
-                color: "white",
-                background: "none",
-                borderTopLeftRadius: "8px",
-                borderTopRightRadius: "8px",
-                fontSize: "16px",
-
-                "&:placeholder": {
+            <Box>
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+                style={{
+                  width: "90%",
+                  padding: "13px 20px",
+                  outline: "none",
+                  borderBottom: "1px solid white",
                   color: "white",
-                },
-              }}
-              placeholder="Search..."
-            />
-            <ProductCard data={data} lang={lang} setLang={setLang} />
+                  background: "none",
+                  borderTopLeftRadius: "8px",
+                  borderTopRightRadius: "8px",
+                  fontSize: "16px",
+
+                  "&:placeholder": {
+                    color: "white",
+                  },
+                }}
+                placeholder="Search..."
+              />
+              <ProductCard data={data} lang={lang} setLang={setLang} />
+
+              {data.length === 0 ? (
+                <Typography
+                  sx={{ color: "white", textAlign: "center", fontSize: "24px" }}
+                >
+                  No result
+                </Typography>
+              ) : (
+                ""
+              )}
+
+              <Box>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
+                    marginTop: "30px",
+                  }}
+                >
+                  <button
+                    className="prev_btn add__btn"
+                    onClick={() => setOffset(Number(offset) - 1)}
+                    disabled={offset === 1 ? true : false}
+                    style={{
+                      background: offset === 1 ? "gray" : "#ffff",
+                      color: "black",
+
+                      width: "90px",
+                      padding: "5px",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Prev
+                  </button>
+                  <Typography sx={{ color: "white", fontSize: "20px" }}>
+                    {offset}
+                  </Typography>
+                  <button
+                    className="next_btn add__btn"
+                    onClick={() => setOffset(Number(offset) + 1)}
+                    disabled={data?.length > 0 ? false : true}
+                    style={{
+                      background: offset >= 0 ? "#ffff" : "gray",
+                      color: "black",
+
+                      width: "90px",
+                      padding: "5px",
+                      border: "none",
+                      cursor: "pointer",
+                      marginLeft: "10px",
+                    }}
+                  >
+                    Next
+                  </button>
+                </div>
+              </Box>
+            </Box>
           </Grid>
         </Grid>
       </Box>
