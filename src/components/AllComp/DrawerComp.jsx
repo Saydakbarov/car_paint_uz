@@ -51,9 +51,20 @@ export default function DrawerComp({ lang, setLang }) {
 
             <LanguageComp lang={lang} setLang={setLang} />
           </Box>
-          <List sx={{ width: "240px", p: 2 }}>
+          <List
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              background: "black",
+            }}
+          >
             {content[lang].headerMenuData?.links?.map((page, i) => (
-              <ListItemButton key={i} onClick={() => setOpenDrawer(false)}>
+              <ListItemButton
+                sx={{ display: "inline-block" }}
+                key={i}
+                onClick={() => setOpenDrawer(false)}
+              >
                 <ListItemIcon onClick={() => navigate(page.path)}>
                   <ListItemText sx={{ color: "white !important" }}>
                     {page.title}

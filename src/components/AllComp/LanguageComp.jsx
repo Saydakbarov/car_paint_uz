@@ -2,7 +2,7 @@ import React from "react";
 
 export default function LanguageComp({ lang, setLang }) {
   return (
-    <div>
+    <div style={{ marginRight: "20px" }}>
       <select
         defaultValue={lang}
         onChange={(e) => {
