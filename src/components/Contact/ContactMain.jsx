@@ -25,7 +25,11 @@ export default function ContactMain({ lang, setLang }) {
                 fontWeight: "bold",
               }}
             >
-              Contact
+              {lang === "uz"
+                ? "Kontakt"
+                : lang === "en"
+                ? "Contact"
+                : "Контакт"}
             </Typography>
 
             <Typography
@@ -36,8 +40,6 @@ export default function ContactMain({ lang, setLang }) {
                 color: "white",
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </Typography>
           </Grid>
 

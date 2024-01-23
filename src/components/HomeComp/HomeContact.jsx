@@ -3,7 +3,7 @@ import React from "react";
 
 import BackgroundContact from "../../images/HomePage/HomeContact/background.png";
 
-export default function HomeContact() {
+export default function HomeContact({ lang }) {
   return (
     <Box
       sx={{
@@ -26,7 +26,13 @@ export default function HomeContact() {
         className="globalContainer"
       >
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <label style={{ color: "white" }}>Your Name</label>
+          <label style={{ color: "white" }}>
+            {lang === "en"
+              ? "Your Name"
+              : lang === "uz"
+              ? "Sizning ismingiz"
+              : "Ваше имя"}
+          </label>
           <input
             type="text"
             placeholder="Enter your name"
@@ -42,7 +48,13 @@ export default function HomeContact() {
         </Box>
 
         <Box sx={{ display: "flex", flexDirection: "column", mt: 3 }}>
-          <label style={{ color: "white" }}>Your Email</label>
+          <label style={{ color: "white" }}>
+            {lang === "en"
+              ? "Your Email"
+              : lang === "uz"
+              ? "Elektron pochta manzili"
+              : "Ваш адрес электронной почты"}
+          </label>
           <input
             type="email"
             placeholder="Enter your email"
@@ -58,7 +70,13 @@ export default function HomeContact() {
           />
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column", mt: 3 }}>
-          <label style={{ color: "white" }}>Your Number</label>
+          <label style={{ color: "white" }}>
+            {lang === "en"
+              ? "Your Number"
+              : lang === "uz"
+              ? "Telefon raqamingiz"
+              : "Твой номер"}
+          </label>
           <input
             type="text"
             placeholder="Enter your number"
@@ -75,7 +93,7 @@ export default function HomeContact() {
         </Box>
 
         <Button fullWidth color="error" variant="contained" sx={{ mt: 3 }}>
-          Submit
+          Отправить
         </Button>
       </Box>
     </Box>

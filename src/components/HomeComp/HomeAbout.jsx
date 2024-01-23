@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import ModalVideo from "./ModalVideo";
 
-export default function HomeAbout() {
+export default function HomeAbout({ lang, setLang }) {
   return (
     <Box
       sx={{
@@ -34,15 +34,18 @@ export default function HomeAbout() {
                 color: "white",
               }}
             >
-              Who We Are
+              {lang === "en"
+                ? " Who We Are?"
+                : lang === "ru"
+                ? "Кто мы?"
+                : "Biz kimmiz?"}
             </Typography>
             <Typography sx={{ color: "gray", mt: 3 }}>
-              At [Company Name], we believe every car has its unique journey and
-              story. Our mission? To ensure that story continues with safety,
-              reliability, and renewed vigor. With over [XX years] in the
-              automotive industry, our team combines traditional craftsmanship
-              with modern technology, bringing you unparalleled service and
-              expertise
+              {lang === "uz"
+                ? "paint 2018 yildan beri dunyodagi yetakchi korxonalar hisoblanga PPG, DUXONE, AKRiPOL, Polaron, Orbay, Befar, Henkel,  Axalta, CST  bilan hamkorlikda ishlaydi. Bizdagi bo'yoq mahsulotlari bo'yalgan mahsulotlarning uzoq umr va ajoyib ko'rinishini ta'minlaydi"
+                : lang === "ru"
+                ? "С 2018 года краска сотрудничает с PPG, DUXONE, AKRiPOL, Polaron, Orbay, Befar, Henkel, Axalta, CST, среди ведущих предприятий мира. Наша лакокрасочная продукция обеспечивает долгий срок службы и отличный внешний вид окрашенных изделий."
+                : "Since 2018, paint has been cooperating with PPG, DUXONE, AKRiPOL, Polaron, Orbay, Befar, Henkel, Axalta, CST, among the world's leading enterprises. Our paint products ensure long life and excellent appearance of painted products"}
             </Typography>
           </Grid>
           <Grid item lg={5} md={5} sm={10} xs={11}>

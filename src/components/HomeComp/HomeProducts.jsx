@@ -37,7 +37,11 @@ export default function HomeProducts({ lang, setLang }) {
             textAlign: "center",
           }}
         >
-          Our Products
+          {lang === "en"
+            ? "Our Products"
+            : lang === "ru"
+            ? "Наши продукты"
+            : "Mahsulotlarimiz"}
         </Typography>
         <Products data={data} lang={lang} setLang={setLang} />
       </Box>

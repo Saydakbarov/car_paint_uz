@@ -45,7 +45,11 @@ export default function Footer({ lang }) {
             <Typography
               sx={{ fontSize: "20px", color: "#fff", textAlign: "center" }}
             >
-              Other Page
+              {lang === "en"
+                ? "Other Page"
+                : lang === "uz"
+                ? "Boshqa sahifalar"
+                : "Другие страницы"}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", mt: 4 }}>
               {content[lang].headerMenuData?.links?.map((item, i) => (

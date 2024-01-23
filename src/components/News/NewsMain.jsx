@@ -25,7 +25,11 @@ export default function NewsMain({ lang, setLang }) {
                 fontWeight: "bold",
               }}
             >
-              News
+              {lang === "en"
+                ? "News"
+                : lang === "uz"
+                ? "Yangiliklar"
+                : "Новости"}
             </Typography>
 
             <Typography
@@ -36,8 +40,11 @@ export default function NewsMain({ lang, setLang }) {
                 color: "white",
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              {lang === "uz"
+                ? "Biz faqat birinchi toifali bo'yoq va laklarni sizlarga taklif qilamiz"
+                : lang === "ru"
+                ? "Мы предлагаем Вам только первоклассные краски и лаки."
+                : "We offer you only first-class paints and varnishes"}
             </Typography>
           </Grid>
 

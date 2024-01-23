@@ -25,7 +25,11 @@ export default function ProductMain({ lang, setLang }) {
                 fontWeight: "bold",
               }}
             >
-              Products
+              {lang === "en"
+                ? "Products"
+                : lang === "ru"
+                ? "Продукты"
+                : "Mahsulotlar"}
             </Typography>
 
             <Typography
@@ -36,8 +40,11 @@ export default function ProductMain({ lang, setLang }) {
                 color: "white",
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              {lang === "uz"
+                ? "CAR PAINT savdo maydonchamizga xush kelibsiz. Ushbu sahifada siz ishonchli yetkazib beruvchilarimizdan avtomobil bo'yoqlari, laklarini tez va oson tanlashingiz va xarid qilishingiz mumkin. "
+                : lang === "ru"
+                ? "Добро пожаловать на нашу платформу продаж CAR PAINT. На этой странице вы сможете быстро и легко выбрать и купить автомобильные краски и лаки у наших надежных поставщиков."
+                : "Welcome to our CAR PAINT sales platform. On this page, you can quickly and easily choose and buy car paints and varnishes from our reliable suppliers."}
             </Typography>
           </Grid>
 

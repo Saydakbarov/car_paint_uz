@@ -25,7 +25,11 @@ export default function AboutMain({ lang, setLang }) {
                 fontWeight: "bold",
               }}
             >
-              About Us
+              {lang === "en"
+                ? "About Us"
+                : lang === "uz"
+                ? "Biz Haqimizda"
+                : "О нас"}
             </Typography>
 
             <Typography
@@ -36,8 +40,11 @@ export default function AboutMain({ lang, setLang }) {
                 color: "white",
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              {lang === "uz"
+                ? "Carpaint da  ranglarning mukammal moslashuvi uchun cheksiz rang tanlovini taklif etamiz."
+                : lang === "ru"
+                ? "В Carpaint мы предлагаем неограниченный выбор цветов для идеального сочетания цветов."
+                : "At Carpaint, we offer an unlimited choice of colors for the perfect color match."}
             </Typography>
           </Grid>
 

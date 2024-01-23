@@ -3,7 +3,7 @@ import React from "react";
 
 import BackgroundService from "../../images/HomePage/HomeService/bacground.jpeg";
 
-export default function HomeService() {
+export default function HomeService({ lang }) {
   return (
     <Box
       sx={{
@@ -21,12 +21,11 @@ export default function HomeService() {
           fontSize: { xs: "34px", sm: "44px", md: "54px" },
         }}
       >
-        Our Expert Services
-      </Typography>
-
-      <Typography sx={{ textAlign: "center", color: "gray", fontSize: "18px" }}>
-        Comprehensive solutions for every car need, ensuring your vehicle runs
-        at its best.
+        {lang === "uz"
+          ? "Bizning maxsulotimiz avfzalliklari"
+          : lang === "ru"
+          ? "Преимущества нашей продукции"
+          : "Our product advantages"}
       </Typography>
 
       <Box sx={{ mt: 7, p: 2 }} className="globalContainer">
@@ -50,12 +49,19 @@ export default function HomeService() {
               alt=""
             />
 
-            <Typography sx={{ color: "#fff", fontSize: "18px", mt: 2 }}>
-              Brake & Transmission
-            </Typography>
-            <Typography sx={{ color: "gray", fontSize: "16px", mt: 2 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            <Typography
+              sx={{
+                color: "#fff",
+                fontSize: "22px",
+                mt: 2,
+                textAlign: "center",
+              }}
+            >
+              {lang == "uz"
+                ? "•tez quritish (30 daqiqadan ko'p bo'lmagan)"
+                : lang === "ru"
+                ? "быстрое высыхание (не более 30 минут)"
+                : "quick drying (no more than 30 minutes);"}
             </Typography>
           </Grid>
           <Grid
@@ -71,12 +77,19 @@ export default function HomeService() {
               alt=""
             />
 
-            <Typography sx={{ color: "#fff", fontSize: "18px", mt: 2 }}>
-              Brake & Transmission
-            </Typography>
-            <Typography sx={{ color: "gray", fontSize: "16px", mt: 2 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            <Typography
+              sx={{
+                color: "#fff",
+                fontSize: "22px",
+                mt: 2,
+                textAlign: "center",
+              }}
+            >
+              {lang === "uz"
+                ? "yuqori elastiklik"
+                : lang === "ru"
+                ? "высокая эластичность"
+                : "high elasticity"}
             </Typography>
           </Grid>
         </Grid>
@@ -102,12 +115,19 @@ export default function HomeService() {
               alt=""
             />
 
-            <Typography sx={{ color: "#fff", fontSize: "18px", mt: 2 }}>
-              Brake & Transmission
-            </Typography>
-            <Typography sx={{ color: "gray", fontSize: "16px", mt: 2 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            <Typography
+              sx={{
+                color: "#fff",
+                fontSize: "22px",
+                mt: 2,
+                textAlign: "center",
+              }}
+            >
+              {lang === "uz"
+                ? "1600 xil maxsulot"
+                : lang === "ru"
+                ? "1600 различных товаров"
+                : "1600 различных товаров"}
             </Typography>
           </Grid>
           <Grid
@@ -123,12 +143,19 @@ export default function HomeService() {
               alt=""
             />
 
-            <Typography sx={{ color: "#fff", fontSize: "18px", mt: 2 }}>
-              Brake & Transmission
-            </Typography>
-            <Typography sx={{ color: "gray", fontSize: "16px", mt: 2 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            <Typography
+              sx={{
+                color: "#fff",
+                fontSize: "22px",
+                mt: 2,
+                textAlign: "center",
+              }}
+            >
+              {lang === "uz"
+                ? "500 dan ortiq ranglar"
+                : lang === "ru"
+                ? "Более 500 цветов"
+                : "More than 500 colors"}
             </Typography>
           </Grid>
         </Grid>

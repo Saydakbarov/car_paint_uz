@@ -2,7 +2,7 @@ import { CarCrash, DirectionsCar } from "@mui/icons-material";
 import { Box, Button, Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
 
-export default function AboutBox() {
+export default function AboutBox({ lang }) {
   return (
     <Box
       sx={{
@@ -27,7 +27,11 @@ export default function AboutBox() {
                 fontWeight: "bold",
               }}
             >
-              We Are The Best
+              {lang === "uz"
+                ? "Biz eng zorimiz!"
+                : lang === "ru"
+                ? "Мы лучшие !"
+                : "We Are The Best"}
             </Typography>
 
             <Typography
@@ -36,14 +40,15 @@ export default function AboutBox() {
                 mt: 2,
               }}
             >
-              At [Company Name], we believe every car has its unique journey and
-              story. Our mission? To ensure that story continues with safety,
-              reliability, and renewed vigor. With over [XX years] in the
-              automotive industry, our team combines
+              {lang === "uz"
+                ? ". Car paint 2018 yildan beri dunyodagi yetakchi korxonalar hisoblanga PPG, DUXONE, AKRiPOL, Polaron, Orbay, Befar, Henkel,  Axalta, CST  bilan hamkorlikda ishlaydi. Bizdagi bo'yoq mahsulotlari bo'yalgan mahsulotlarning uzoq umr va ajoyib ko'rinishini ta'minlaydi. "
+                : lang === "ru"
+                ? ". С 2018 года компания «Автокраска» работает в сотрудничестве с ведущими мировыми компаниями, такими как PPG, DUXONE, AKRiPOL, Polaron, Orbay, Befar, Henkel, Axalta, CST. Наша лакокрасочная продукция обеспечивает долгий срок службы и отличный внешний вид окрашенных изделий."
+                : ". Since 2018, Car paint has been working in cooperation with the world's leading companies such as PPG, DUXONE, AKRiPOL, Polaron, Orbay, Befar, Henkel, Axalta, CST. Our paint products ensure long life and excellent appearance of painted products."}
             </Typography>
 
             <Button variant="contained" color="error" sx={{ mt: 4 }}>
-              Learn More
+              Подробнее
             </Button>
           </Grid>
 

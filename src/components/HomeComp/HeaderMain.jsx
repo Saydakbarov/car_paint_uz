@@ -13,11 +13,12 @@ export default function HeaderMain({ lang, setLang }) {
       sx={{
         backgroundImage: `url(${GifHeader})`,
         backgroundSize: "cover",
+        pb: 13,
       }}
     >
       <HeaderMenu lang={lang} setLang={setLang} />
 
-      <Box className="globalContainer" sx={{ mt: 10, pb: 12 }}>
+      <Box className="globalContainer" sx={{ mt: 15, pb: 12 }}>
         <Grid
           container
           sx={{
@@ -32,17 +33,28 @@ export default function HeaderMain({ lang, setLang }) {
           gap={3}
         >
           <Grid item lg={8} md={8} sm={10} xs={11}>
-            <Typography sx={{ color: "gray", fontSize: "20px" }}>
-              PROFESSIONAL AND FAST
+            <Typography
+              sx={{ color: "gray", fontSize: { xs: "16px", sm: "20px" } }}
+            >
+              {lang === "en"
+                ? "PROFESSIONAL AND FAST"
+                : lang === "ru"
+                ? "ПРОФЕССИОНАЛЬНО И БЫСТРО"
+                : "PROFESSIONAL VA TEZ"}
             </Typography>
             <Typography
               sx={{
                 color: "white",
-                fontSize: { xs: "30px", sm: "28px", md: "44px", lg: "94px" },
+                fontSize: { xs: "28px", sm: "24px", md: "34px", lg: "54px" },
                 fontWeight: "bold",
+                mt:3
               }}
             >
-              CAR REPAIR & AUTO SERVICE
+              {lang === "uz"
+                ? "Biz faqat birinchi toifali bo'yoq va laklarni sizlarga taklif qilamiz. Car paint "
+                : lang === "ru"
+                ? "Мы предлагаем Вам только первоклассные краски и лаки. Автомобильная краска"
+                : "We offer you only first-class paints and varnishes. Car paint"}
             </Typography>
           </Grid>
 
@@ -55,7 +67,7 @@ export default function HeaderMain({ lang, setLang }) {
           </Grid> */}
         </Grid>
 
-        <Box
+        {/* <Box
           sx={{ mt: 5, p: 2, display: { xs: "none", sm: "none", md: "block" } }}
         >
           <Grid container gap={3} alignItems={"center"}>
@@ -118,7 +130,7 @@ export default function HeaderMain({ lang, setLang }) {
               </Typography>
             </Grid>
           </Grid>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );

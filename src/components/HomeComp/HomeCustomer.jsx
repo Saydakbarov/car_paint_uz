@@ -9,8 +9,12 @@ import BoxLogo3 from "../../images/HomePage/HomeCustomers/logo3.webp";
 import BoxProduct1 from "../../images/HomePage/HomeCustomers/product1.jpg";
 import BoxProduct2 from "../../images/HomePage/HomeCustomers/product2.jpg";
 import BoxProduct3 from "../../images/HomePage/HomeCustomers/product3.jpg";
+import { Link } from "react-router-dom";
+import { useBrands } from "../../dataQuery/data.service";
 
-export default function HomeCustomer() {
+export default function HomeCustomer({ lang }) {
+  const { data: brands } = useBrands({ limit: 20, page: 1 });
+  
   return (
     <Box
       sx={{
@@ -29,18 +33,31 @@ export default function HomeCustomer() {
                 lineHeight: "70px",
               }}
             >
-              What Our Customers Say
+              {lang === "uz"
+                ? "Bizning mijozlarimiz nima deyishadi"
+                : lang === "ru"
+                ? "Что говорят наши клиенты"
+                : "What Our Customers Say"}
             </Typography>
           </Grid>
           <Grid item lg={6}>
             <Typography sx={{ color: "gray" }}>
-              Discover firsthand accounts from clients who have experienced the
-              benefits of our products and services.
+              {lang === "uz"
+                ? "Carpain - mahsulot sifatiga ishonch demakdir.  Bizning xodimlarimiz o'z ishlariga sodiqdirlar va barcha mahsulotlar brendlari bo'yicha mijozlarimizga eng yuqori darajadagi sifatli xizmatni taqdim etadilar. "
+                : lang === "ru"
+                ? "Carpain – это уверенность в качестве продукции. Наши сотрудники преданы своей работе и обеспечивают высочайший уровень качества обслуживания наших клиентов по всем брендам продукции."
+                : "Carpain means confidence in product quality. Our employees are dedicated to their work and provide the highest level of quality service to our customers across all product brands."}
             </Typography>
 
-            <Button variant="contained" color="error" sx={{ mt: 6 }}>
-              Lead More
-            </Button>
+            <Link to={"/product"}>
+              <Button variant="contained" color="error" sx={{ mt: 6 }}>
+                {lang === "uz"
+                  ? "Batafsil"
+                  : lang === "en"
+                  ? "More"
+                  : "Подробнее "}
+              </Button>
+            </Link>
           </Grid>
         </Grid>
 
@@ -212,7 +229,7 @@ export default function HomeCustomer() {
           </Grid>
         </Grid>
 
-        <Box sx={{ mt: 8 }}>
+        {/* <Box sx={{ mt: 8 }}>
           <Typography
             sx={{
               fontSize: { xs: "34px", sm: "44px", md: "54px" },
@@ -297,7 +314,7 @@ export default function HomeCustomer() {
               </Box>
             </Grid>
           </Grid>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );
