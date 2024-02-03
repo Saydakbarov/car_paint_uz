@@ -2,19 +2,16 @@ import { LocationCity } from "@mui/icons-material";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
 
-import BoxLogo1 from "../../images/HomePage/HomeCustomers/logo1.png";
-import BoxLogo2 from "../../images/HomePage/HomeCustomers/logo2.png";
-import BoxLogo3 from "../../images/HomePage/HomeCustomers/logo3.webp";
-
-import BoxProduct1 from "../../images/HomePage/HomeCustomers/product1.jpg";
-import BoxProduct2 from "../../images/HomePage/HomeCustomers/product2.jpg";
-import BoxProduct3 from "../../images/HomePage/HomeCustomers/product3.jpg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import { Link } from "react-router-dom";
-import { useBrands } from "../../dataQuery/data.service";
+import { usePartners } from "../../dataQuery/data.service";
 
 export default function HomeCustomer({ lang }) {
-  const { data: brands } = useBrands({ limit: 20, page: 1 });
-  
+  const { data: partners } = usePartners({ limit: 100, page: 1 });
+
   return (
     <Box
       sx={{
@@ -64,65 +61,122 @@ export default function HomeCustomer({ lang }) {
         <Grid
           container
           sx={{
-            justifyContent: { xs: "center", sm: "center", md: "space-between" },
+            justifyContent: { xs: "center", sm: "center", md: "center" },
           }}
           mt={5}
           gap={3}
         >
-          <Grid
-            item
-            lg={3.5}
-            md={3.5}
-            sm={5}
-            xs={11}
-            sx={{ background: "#1C1C1D" }}
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            pagination={{
+              clickable: true,
+            }}
+            breakpoints={{
+              300: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              1500: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+              },
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+            style={{ paddingBottom: "50px" }}
           >
-            <img width={"100%"} src={BoxProduct1} alt="" />
+            {partners?.data?.map((v, i) => (
+              <SwiperSlide>
+                <Grid
+                  item
+                  lg={12}
+               
+                  sx={{ background: "#1C1C1D" }}
+                  key={v.partner_id}
+                >
+                  <img
+                    width={"100%"}
+                    style={{
+                      height: "300px",
+                      objectFit: "cover",
+                    }}
+                    src={v.product_image_url}
+                    alt=""
+                  />
 
-            <Box
-              sx={{
-                display: "flex",
-                gap: "20px",
-                alignItems: "center",
-                background: "gray",
-                opacity: "80%",
-                width: "auto",
-                p: 1,
-              }}
-            >
-              <img
-                style={{
-                  width: "100px",
-                }}
-                src={BoxLogo1}
-                alt=""
-              />
-              <Box>
-                <Typography sx={{ color: "white", fontWeight: "bold" }}>
-                  Orbay
-                </Typography>
-                <Typography sx={{ color: "white", fontWeight: "bold" }}>
-                  Orbay Product
-                </Typography>
-              </Box>
-            </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: "20px",
+                      alignItems: "center",
+                      background: "gray",
+                      opacity: "80%",
+                      width: "auto",
+                      p: 1,
+                    }}
+                  >
+                    <img
+                      style={{
+                        width: "100px",
+                        objectFit: "contain",
+                        height: "50px",
+                      }}
+                      src={v.partner_image_url}
+                      alt=""
+                    />
+                    <Box>
+                      <Typography sx={{ color: "white", fontWeight: "bold" }}>
+                        {lang === "ru"
+                          ? v.product_title_ru
+                          : lang === "uz"
+                          ? v.product_title_uz
+                          : v.product_title_en}
+                      </Typography>
+                    </Box>
+                  </Box>
 
-            <Box sx={{ p: 2, mt: 3 }}>
-              <Typography
-                sx={{ fontSize: "22px", color: "white", fontWeight: "bold" }}
-              >
-                Great Reparation!
-              </Typography>
+                  <Box sx={{ p: 2, mt: 3 }}>
+                    <Typography
+                      sx={{
+                        fontSize: "22px",
+                        color: "white",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {lang === "ru"
+                        ? v.product_title_ru
+                        : lang === "uz"
+                        ? v.product_title_uz
+                        : v.product_title_en}
+                    </Typography>
 
-              <Typography sx={{ color: "gray" }}>
-                Lorem ipsum dolor sit amet consectetur. Tortor nunc consequat
-                diam amet lacus felis. Augue sapien fringilla sed donec massa in
-                lobortis. Natoque congue malesuada aliquet vitae egestas.
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid
+                    <Typography sx={{ color: "gray" }}>
+                      {lang === "ru"
+                        ? v.product_description_ru
+                        : lang === "uz"
+                        ? v.product_description_uz
+                        : v.product_description_en}
+                    </Typography>
+                  </Box>
+                </Grid>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          ;
+          {/* <Grid
             item
             lg={3.5}
             md={3.5}
@@ -168,9 +222,9 @@ export default function HomeCustomer({ lang }) {
               </Typography>
 
               <Typography sx={{ color: "gray" }}>
-                Lorem ipsum dolor sit amet consectetur. Tortor nunc consequat
-                diam amet lacus felis. Augue sapien fringilla sed donec massa in
-                lobortis. Natoque congue malesuada aliquet vitae egestas.
+                  Lorem ipsum dolor sit amet consectetur. Tortor nunc consequat
+                  diam amet lacus felis. Augue sapien fringilla sed donec massa in
+                  lobortis. Natoque congue malesuada aliquet vitae egestas.
               </Typography>
             </Box>
           </Grid>
@@ -226,7 +280,7 @@ export default function HomeCustomer({ lang }) {
                 lobortis. Natoque congue malesuada aliquet vitae egestas.
               </Typography>
             </Box>
-          </Grid>
+          </Grid> */}
         </Grid>
 
         {/* <Box sx={{ mt: 8 }}>
