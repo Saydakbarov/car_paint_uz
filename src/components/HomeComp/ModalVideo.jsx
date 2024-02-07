@@ -11,7 +11,8 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 800,
+  width: { xs: "300px", sm: "350px", md: "450px", lg: "550px" },
+
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -25,7 +26,13 @@ export default function ModalVideo({ videoSrc }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div style={{ margin: "0 auto", textAlign: "center" }}>
+    <Box
+      sx={{
+        margin: "0 auto",
+        textAlign: "center",
+        padding: "10px",
+      }}
+    >
       <IconButton
         sx={{
           background: "red",
@@ -55,6 +62,6 @@ export default function ModalVideo({ videoSrc }) {
           ></iframe>
         </Box>
       </Modal>
-    </div>
+    </Box>
   );
 }

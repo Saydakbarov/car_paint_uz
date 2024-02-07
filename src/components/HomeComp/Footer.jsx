@@ -30,14 +30,15 @@ export default function Footer({ lang }) {
             />
             <Box sx={{ mt: 4 }}>
               <Typography sx={{ color: "gray" }}>
-                Sunset Road No 11 Denpasar, Bali​ - Indonesia
+                Янгихаётский район, Ташкен
               </Typography>
               <Typography sx={{ color: "gray" }}>info@carpaint.uz</Typography>
               <a
                 href="tel:+998909557555"
                 style={{ color: "gray", textDecoration: "none" }}
               >
-                Phone: 909557555
+                {lang === "ru" ? "Номер " : lang === "en" ? "Phone" : "Telefon"}
+                : 909557555
               </a>
             </Box>
           </Grid>

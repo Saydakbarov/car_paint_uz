@@ -15,7 +15,7 @@ export default function ProductCard({ data, lang, setLang }) {
     <>
       <Box
         sx={{
-          display: { xs: "none", sm: "none", md: "flex" },
+          display: "flex",
           gap: "20px",
           flexWrap: "wrap",
           justifyContent: { xs: "center", sm: "center", md: "start" },
@@ -64,7 +64,7 @@ export default function ProductCard({ data, lang, setLang }) {
           </Link>
         ))}
       </Box>
-
+      {/* 
       <Box sx={{ display: { xs: "block", sm: "block", md: "none" } }}>
         <Swiper
           slidesPerView={1}
@@ -143,7 +143,7 @@ export default function ProductCard({ data, lang, setLang }) {
             </SwiperSlide>
           ))}
         </Swiper>
-      </Box>
+      </Box> */}
     </>
   );
 }

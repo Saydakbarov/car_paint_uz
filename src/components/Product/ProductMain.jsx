@@ -16,7 +16,7 @@ export default function ProductMain({ lang, setLang }) {
       <HeaderMenu lang={lang} setLang={setLang} />
 
       <Box className="globalContainer" sx={{ mt: 10, pb: 3 }}>
-        <Grid container justifyContent={"space-between"}>
+        <Grid container justifyContent={"space-between"} sx={{ p: 1 }}>
           <Grid item lg={5}>
             <Typography
               sx={{

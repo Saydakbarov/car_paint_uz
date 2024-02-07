@@ -60,7 +60,7 @@ export default function HomeAbout({ lang, setLang }) {
                 lineHeight: "300px",
               }}
             >
-              <ModalVideo videoSrc={"WVl6g5hvcDA"} />
+              <ModalVideo videoSrc={"EabvA1hTzFg"} />
             </Box>
           </Grid>
         </Grid>
