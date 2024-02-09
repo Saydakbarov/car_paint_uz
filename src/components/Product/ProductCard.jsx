@@ -16,7 +16,7 @@ export default function ProductCard({ data, lang, setLang }) {
       <Box
         sx={{
           display: "flex",
-          gap: "20px",
+          gap: "10px",
           flexWrap: "wrap",
           justifyContent: { xs: "center", sm: "center", md: "start" },
           mt: 3,
@@ -26,17 +26,17 @@ export default function ProductCard({ data, lang, setLang }) {
           <Link key={i} to={`/single/${v.product_id}`}>
             <Box
               sx={{
-                width: "250px",
+                width: { xs: "150px", sm: "200px", md: "250px " },
                 position: "relative",
-                height: "300px",
+                height: { xs: "200px", sm: "220px", md: "260px" },
                 borderTopLeftRadius: "20px",
                 border: "1px solid white",
+                mt: 1,
               }}
               className="productBox"
             >
               <img
                 style={{
-                  width: "150px",
                   position: "absolute",
                   bottom: "0%",
                   right: "0%",
@@ -45,10 +45,11 @@ export default function ProductCard({ data, lang, setLang }) {
                 src={v.product_image_url[0]}
                 alt=""
               />
+
               <Typography
                 sx={{
                   color: "white",
-                  fontSize: "20px",
+                  fontSize: { xs: "16px", sm: "18px" },
                   textAlign: "center",
                   mt: 3,
                 }}

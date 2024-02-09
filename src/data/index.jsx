@@ -156,7 +156,7 @@ export const ContactData = [
   },
   {
     img: <Call sx={{ color: "white", fontSize: "30px" }} />,
-    title: "90:955-75-55",
+    title: "+99890-955-75-55",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
     link: "tel:+99890-955-75-55",
   },
